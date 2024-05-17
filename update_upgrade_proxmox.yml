@@ -1,0 +1,21 @@
+---
+- name: Update and upgrade Ubuntu server
+  hosts: proxmox_servers
+  become: yes
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Upgrade all packages
+      apt:
+        upgrade: dist
+
+    - name: Autoremove unused packages
+      apt:
+        autoremove: yes
+
+    - name: Clean up apt cache
+      apt:
+        autoclean: yes
