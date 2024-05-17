@@ -1,0 +1,10 @@
+---
+- name: Reboot Ubuntu servers
+  hosts: ubuntu_servers
+  become: yes
+
+  tasks:
+    - name: Reboot the server
+      reboot:
+        msg: "Reboot initiated by Ansible"
+        reboot_timeout: 600
