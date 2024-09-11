@@ -1,7 +1,8 @@
 ---
 - name: Update and upgrade Ubuntu server
   hosts: ubuntu_servers
-  become: yes
+  become: yes # Habilita escalado de privilegios
+  become_method: sudo # Usa 'sudo' para el escalado (esto es el predeterminado, pero se puede especificar explícitamente)
 
   tasks:
     - name: Update apt cache
